@@ -22,7 +22,7 @@ public interface GeocodingController {
     @ApiOperation(value = "Save City to the DB",
             notes = "adds a new City entry to the local DB"
     )
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    @PutMapping("/save/")
     void add(@Valid @RequestBody City city);
 
     @ApiOperation(value = "Find City by name",

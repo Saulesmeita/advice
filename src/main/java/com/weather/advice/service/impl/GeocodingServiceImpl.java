@@ -41,7 +41,7 @@ public class GeocodingServiceImpl implements GeocodingService {
 
     @Override
     public List<CityResponse> getCityFromExternal(String name) {
-        URI url = new UriTemplate(WEATHER_URL).expand(name, apiKey);
+        final URI url = new UriTemplate(WEATHER_URL).expand(name, apiKey);
         final CityResponse[] responses = restTemplate.getForObject(url, CityResponse[].class);
         return Arrays.asList(responses);
     }
