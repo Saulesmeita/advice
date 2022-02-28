@@ -1,6 +1,5 @@
 package com.weather.advice.controller.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.weather.advice.controller.GeocodingController;
 import com.weather.advice.dto.response.external.CityResponse;
 import com.weather.advice.model.City;
@@ -30,7 +29,7 @@ public class GeocodingControllerImpl implements GeocodingController {
     }
 
     @Override
-    public List<CityResponse> fetchByNameFromExternal(String name) throws JsonProcessingException {
+    public List<CityResponse> fetchByNameFromExternal(String name) {
         return service.getCityFromExternal(name);
     }
 }

@@ -1,6 +1,7 @@
 package com.weather.advice.dto.response.external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
 
@@ -12,8 +13,10 @@ import java.math.BigDecimal;
 public class CityResponse {
 
     String name;
-    BigDecimal lat;
-    BigDecimal lon;
+    @JsonProperty("lat")
+    BigDecimal latitude;
+    @JsonProperty("lon")
+    BigDecimal longitude;
     String country;
 }
 
