@@ -1,6 +1,7 @@
 package com.weather.advice.service.impl;
 
 import com.weather.advice.dto.response.external.CityResponse;
+import com.weather.advice.mapper.CityMapper;
 import com.weather.advice.model.City;
 import com.weather.advice.repository.CityRepository;
 import com.weather.advice.service.GeocodingService;
@@ -26,12 +27,15 @@ public class GeocodingServiceImpl implements GeocodingService {
     @Autowired
     private CityRepository repository;
 
+    @Autowired
+    private CityMapper mapper;
+
     @Value("${api.openweathermap.key}")
     private String apiKey;
 
     @Override
-    public void saveCity(City city) {
-        repository.save(city);
+    public void saveCity(CityResponse cityResponse) {
+        repository.save(mapper.fromDto(cityResponse));
     }
 
     @Override

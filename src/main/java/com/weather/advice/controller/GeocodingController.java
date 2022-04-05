@@ -23,7 +23,7 @@ public interface GeocodingController {
             notes = "adds a new City entry to the local DB"
     )
     @PutMapping("/save/")
-    void add(@Valid @RequestBody City city);
+    void add(@Valid @RequestBody CityResponse city);
 
     @ApiOperation(value = "Find City by name",
             notes = "Search local DB and return the list of Cities meeting the search criteria",
@@ -41,5 +41,5 @@ public interface GeocodingController {
     )
     @GetMapping("/external/{name}")
     List<CityResponse> fetchByNameFromExternal(@ApiParam(value = "name", required = true, example = "London")
-                                         @PathVariable String name) throws JsonProcessingException;;
+                                         @PathVariable String name) throws JsonProcessingException;
 }

@@ -19,7 +19,7 @@ public class GeocodingControllerImpl implements GeocodingController {
     GeocodingService service;
 
     @Override
-    public void add(@Valid City city) {
+    public void add(@Valid CityResponse city) {
         service.saveCity(city);
     }
 

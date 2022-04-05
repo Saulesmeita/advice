@@ -10,7 +10,7 @@ import java.util.Set;
 @Service
 public interface GeocodingService {
 
-    void saveCity(City city);
+    void saveCity(CityResponse city);
 
     Set<City> getCity(String name);
 
