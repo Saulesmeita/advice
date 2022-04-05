@@ -58,12 +58,12 @@ class GeocodingServiceImplTest {
 
     @Test
     void shouldGetCityByNameSuccessfully() {
-    when(repository.findCityByName(NAME)).thenReturn(Set.of(createCity()));
+        when(repository.findCityByName(NAME)).thenReturn(Set.of(createCity()));
 
-    Set<City> result = service.getCity(NAME);
+        Set<City> result = service.getCity(NAME);
 
-    assertEquals(1, result.size());
-    assertEquals(COUNTRY, result.iterator().next().getCountry());
+        assertEquals(1, result.size());
+        assertEquals(COUNTRY, result.iterator().next().getCountry());
     }
 
     @Test
@@ -81,7 +81,7 @@ class GeocodingServiceImplTest {
     }
 
     private City createCity() {
-         return City.builder()
+        return City.builder()
                 .country(COUNTRY)
                 .latitude(LATITUDE)
                 .longitude(LONGITUDE)
