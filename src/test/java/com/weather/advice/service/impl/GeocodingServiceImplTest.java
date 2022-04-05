@@ -1,6 +1,7 @@
 package com.weather.advice.service.impl;
 
 import com.weather.advice.dto.response.external.CityResponse;
+import com.weather.advice.mapper.CityMapper;
 import com.weather.advice.model.City;
 import com.weather.advice.repository.CityRepository;
 import org.junit.jupiter.api.Test;
@@ -37,14 +38,19 @@ class GeocodingServiceImplTest {
     @Mock
     private RestTemplate restTemplate;
 
+    @Mock
+    private CityMapper mapper;
+
     @InjectMocks
     private GeocodingServiceImpl service;
 
     @Test
     void shouldSaveCitySuccessfully() {
         City city = createCity();
+        CityResponse cityResponse = createCityResponse(GB);
+        when(mapper.fromDto(any())).thenReturn(createCity());
 
-        service.saveCity(city);
+        service.saveCity(cityResponse);
 
         verify(repository).save(city);
         verifyNoMoreInteractions(repository);
